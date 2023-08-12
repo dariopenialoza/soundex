@@ -6,15 +6,41 @@ import org.junit.jupiter.params.provider.MethodSource;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SoundexTest {
+    // Soundex ( "threshold").representation()  //"T624"
+
+    //Soundex ( "hold").representation()  //"H430"
+
+    //Soundex ( "phone").representation()  //"P500"
+
+    //Soundex ( "foun").representation()  //"F500"
+
+
     @Test
-    void soundexRepresentationLUxuRY() {
+    void soundexRepresentation_threshold_Test() {
+        assertEquals("T624",Soundex.representation("threshold"));
+    }
+    @Test
+    void soundexRepresentation_hold_Test() {
+        assertEquals("H430",Soundex.representation("hold"));
+    }
+    @Test
+    void soundexRepresentation_phone_Test() {
+        assertEquals("P500",Soundex.representation("phone"));
+    }
+    @Test
+    void soundexRepresentation_foun_Test() {
+        assertEquals("F500",Soundex.representation("foun"));
+    }
+
+    @Test
+    void soundexRepresentationLUxuRYTest() {
         String expected = "L260";
         String result = Soundex.representation("LUxuRy");
         assertEquals(expected,result);
     }
 
     @Test
-    void soundexRepresentationSZLLOYDTIRUL() {
+    void soundexRepresentationSZLLOYDTIRULTest() {
         assertEquals("S436",Soundex.representation("SZLLOYDTIRUL"));
     }
 
@@ -51,7 +77,6 @@ class SoundexTest {
 
     @Test
     void toCharTestArray() {
-        int[] ints = {0,1,2,3,4,5,6};
         Assertions.assertAll(()->assertEquals('0',Soundex.toChar(0)),
                             ()->assertEquals('1',Soundex.toChar(1)),
                             ()->assertEquals('2',Soundex.toChar(2)),
