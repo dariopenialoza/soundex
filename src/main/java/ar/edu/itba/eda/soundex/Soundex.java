@@ -7,17 +7,17 @@ public class Soundex {
         char[] OUT = {'0','0','0','0'};
         OUT[0] = IN[0];
         int count = 1;
-        int current, last = getCode(IN[0]);
+        int current, last = getMapping(IN[0]);
         for(int i=1; i < IN.length && count < 4; i++){
             char iter=IN[i];
-            current = getCode(iter);
+            current = getMapping(iter);
             if(current != 0 && current !=last)
                 OUT[count++] = toChar(current);
             last = current;
         }
         return new String(OUT);
     }
-    public static int getCode(char c){
+    public static int getMapping(char c){
         c = Character.toUpperCase(c);
         String [] code = {"B,F,P,V","C,G,J,K,Q,S,X,Z","D,T","L","M,N","R"};
         for( int i = 0; i < code.length; i++){

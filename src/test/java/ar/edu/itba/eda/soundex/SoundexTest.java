@@ -56,13 +56,13 @@ class SoundexTest {
     void getCodeTest() {
         char[] chars = {'a','B','x','D','L','M','R'};
 
-        Assertions.assertAll(()->assertEquals(0,Soundex.getCode(chars[0])),
-                            ()->assertEquals(1,Soundex.getCode(chars[1])),
-                            ()->assertEquals(2,Soundex.getCode(chars[2])),
-                            ()->assertEquals(3,Soundex.getCode(chars[3])),
-                            ()->assertEquals(4,Soundex.getCode(chars[4])),
-                            ()->assertEquals(5,Soundex.getCode(chars[5])),
-                            ()->assertEquals(6,Soundex.getCode(chars[6])));
+        Assertions.assertAll(()->assertEquals(0,Soundex.getMapping(chars[0])),
+                            ()->assertEquals(1,Soundex.getMapping(chars[1])),
+                            ()->assertEquals(2,Soundex.getMapping(chars[2])),
+                            ()->assertEquals(3,Soundex.getMapping(chars[3])),
+                            ()->assertEquals(4,Soundex.getMapping(chars[4])),
+                            ()->assertEquals(5,Soundex.getMapping(chars[5])),
+                            ()->assertEquals(6,Soundex.getMapping(chars[6])));
     }
 
     private static Object[][] values(){
