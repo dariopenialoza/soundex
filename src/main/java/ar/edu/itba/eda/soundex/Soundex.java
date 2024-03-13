@@ -18,13 +18,17 @@ public class Soundex {
         return new String(OUT);
     }
     public static int getMapping(char c){
+
         c = Character.toUpperCase(c);
-        String [] code = {"B,F,P,V","C,G,J,K,Q,S,X,Z","D,T","L","M,N","R"};
-        for( int i = 0; i < code.length; i++){
-            if( code[i].indexOf(c) >= 0)
-                return i+1;
-        }
-        return 0;
+
+        if (c == ' ' || c == '\t' || c== '\n' || c== '\r')
+
+            return 0;
+
+        int [] code= {0, 1, 2, 3, 0, 1, 2, 0, 0, 2, 2, 4, 5, 5, 0, 1, 2, 6, 2, 3, 0, 1, 0, 2, 0, 2 };
+
+        return code[(c - 'A')];
+
     }
 
     public static char toChar(int n) {
